@@ -11,37 +11,39 @@ Pointwise mutual information-based biological network regression model<br>
     * ZSet:covariate data containing one sample per row, one variable per column.<br>
 
 ## Example:
+run the R code `PMINR.r` first<br>
 
-    library(mvtnorm)<br>
-    sigma<-c( 1 ,0 ,1 ,1 ,0 ,     <br>		
-              0 ,1 ,0 ,1 ,0 ,	<br>	
-              1 ,0 ,1 ,0 ,1 ,	<br>	
-              1 ,1 ,0 ,1 ,1 ,	<br>	
-              0 ,0 ,1 ,1 ,1 )	<br>
-    sigma0<-sigma<br>
-    sigma0<-matrix(sigma0,nrow = 5)<br>		
-    sigma<-matrix(sigma,nrow = 5)<br>
-    mu<-c(0 , 0 , 0 , 0 , 0 )<br>
-    sigma0[lower.tri(sigma0,diag=T)]<-0<br>
-    EDGE <- which(sigma0!=0,arr.ind=T)<br>
-    EDGE<br>
+    library(mvtnorm)
+    sigma<-c( 1 ,0 ,1 ,1 ,0 ,  	
+              0 ,1 ,0 ,1 ,0 ,	 
+              1 ,0 ,1 ,0 ,1 , 	
+              1 ,1 ,0 ,1 ,1 ,	 
+              0 ,0 ,1 ,1 ,1 ) 
+              
+    sigma0<-sigma 
+    sigma0<-matrix(sigma0,nrow = 5) 
+    sigma<-matrix(sigma,nrow = 5) 
+    mu<-c(0 , 0 , 0 , 0 , 0 ) 
+    sigma0[lower.tri(sigma0,diag=T)]<-0 
+    EDGE <- which(sigma0!=0,arr.ind=T) 
+    EDGE 
 
-          row col<br>
-    [1,]   1   3<br>
-    [2,]   1   4<br>
-    [3,]   2   4<br>
-    [4,]   3   5<br>
-    [5,]   4   5<br>
+          row col 
+    [1,]   1   3 
+    [2,]   1   4 
+    [3,]   2   4 
+    [4,]   3   5 
+    [5,]   4   5 
 
-    set.seed(2018)<br>
-    size0 <- size1 <- 50<br>
-    class0 <- rmvnorm( n = size0, sigma = sigma,method = "svd")<br>
-    class1 <- rmvnorm( n = size1, sigma = sigma,method = "svd") <br>
-    DataSet <- rbind(class0,class1)<br>
-    colnames(DataSet)<-c("a","b","c","d","e")<br>
-    classLabel <- c(rep(0,size0),rep(1,size1))<br>
+    set.seed(2018) 
+    size0 <- size1 <- 50 
+    class0 <- rmvnorm( n = size0, sigma = sigma,method = "svd") 
+    class1 <- rmvnorm( n = size1, sigma = sigma,method = "svd") 
+    DataSet <- rbind(class0,class1) 
+    colnames(DataSet)<-c("a","b","c","d","e") 
+    classLabel <- c(rep(0,size0),rep(1,size1)) 
 
-    PMINR(EDGE=EDGE,ClassLabel=classLabel,DataSet=DataSet,ZSet=NULL)<br>
+    PMINR(EDGE=EDGE,ClassLabel=classLabel,DataSet=DataSet,ZSet=NULL) 
 
                  Estimate Std. Error    z value   Pr(>|z|)  
     Intercept -0.29206477  0.2932381 -0.9959987 0.31925077 0
