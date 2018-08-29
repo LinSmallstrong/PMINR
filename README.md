@@ -1,14 +1,16 @@
 # PMINR
 Pointwise mutual information-based biological network regression model<br>
+## Usage<br>
+R code avaiable from https://github.com/LinSmallstrong/PMINR/edit/master/PMINR.r <br>
 
-    PMINR(EDGE,ClassLabel,DataSet,ZSet=NULL)<br>
+    PMINR(EDGE,ClassLabel,DataSet,ZSet=NULL)
 
 ## Arguments:<br>
 
-    * DataSet: data matrices containing one sample per row, one variable per column. <br>
-    * classLabel: must be 0 or 1, e.g. 1 for cases and 0 for controls.<br>
-    * EDGE: array indices. which edge will be tested.<br>
-    * ZSet:covariate data containing one sample per row, one variable per column.<br>
+    * DataSet: data matrices containing one sample per row, one variable per column.  
+    * classLabel: must be 0 or 1, e.g. 1 for cases and 0 for controls. 
+    * EDGE: array indices. which edge will be tested.
+    * ZSet:covariate data containing one sample per row, one variable per column.
 
 ## Example:
 run the R code `PMINR.r` first<br>
