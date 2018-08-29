@@ -1,7 +1,7 @@
 # PMINR
 Pointwise mutual information-based biological network regression model<br>
 ## Usage<br>
-R code avaiable from https://github.com/LinSmallstrong/PMINR/edit/master/PMINR.r <br>
+R code avaiable from https://github.com/LinSmallstrong/PMINR/blob/master/PMINR.R <br>
 
     PMINR(EDGE,ClassLabel,DataSet,ZSet=NULL)
 
