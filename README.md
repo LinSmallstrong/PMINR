@@ -5,14 +5,14 @@ R code avaiable from https://github.com/LinSmallstrong/PMINR/blob/master/PMINR.R
 
     PMINR(EDGE,ClassLabel,DataSet,ZSet=NULL)
 
-## Arguments:<br>
+### Arguments:<br>
 
     * DataSet: data matrices containing one sample per row, one variable per column.  
     * ClassLabel: must be 0 or 1, e.g. 1 for cases and 0 for controls. 
     * EDGE: array indices. which edge will be estimated.
     * ZSet: covariates in data containing one sample per row, one variable per column.
 
-## Example:
+### Example:
 run the R code `PMINR.r` first<br>
 
     library(mvtnorm)
