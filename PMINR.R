@@ -6,7 +6,7 @@ RENAME_brim<-function(EDGE,gene){
   BRIM
 }
 
-KDE_PMI<- function(edge,DataPre,method=c("integers","bandwidth")[2]){
+BKDE_PMI<- function(edge,DataPre,method=c("integers","bandwidth")[2]){
   x <- DataPre[,edge[1]]
   y <- DataPre[,edge[2]]
   N <- max(c(x,y))
@@ -40,7 +40,7 @@ PMINR <- function(EDGE,ClassLabel,DataSet,ZSet=NULL){
   if(!is.null(ZSet)){
     PMINR.Z(EDGE=EDGE,ClassLabel=ClassLabel,DataSet=DataSet,ZSet=ZSet)
   }else{
-    DenPreData <- apply(EDGE,1,KDE_PMI,DataPre=DataSet)
+    DenPreData <- apply(EDGE,1,BKDE_PMI,DataPre=DataSet)
     name<-colnames(DataSet)
     brim_gene<-apply(EDGE,1,RENAME_brim,name)
     colnames(DenPreData)<-brim_gene
@@ -59,7 +59,7 @@ PMINR <- function(EDGE,ClassLabel,DataSet,ZSet=NULL){
 
 
 PMINR.Z <- function(EDGE,ClassLabel,DataSet,ZSet){
-  DenPreData <- apply(EDGE,1,KDE_PMI,DataPre=DataSet)
+  DenPreData <- apply(EDGE,1,BKDE_PMI,DataPre=DataSet)
   name<-colnames(DataSet)
   brim_gene<-apply(EDGE,1,RENAME_brim,name)
   colnames(DenPreData)<-brim_gene
